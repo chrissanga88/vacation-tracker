@@ -4,18 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vacation Tracker</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <script defer src="./assets/js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/dayjs.min.js" integrity="sha256-nP25Pzivzy0Har7NZtMr/TODzfGWdlTrwmomYF2vQXM=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="bg-primary text-center py-3">
+  <header class="bg-primary text-center py-3 mb-4">
     <h1>Vacation Tracker</h1>
     <h2>Current Time &amp; Date: <br>
       <span id="time-date"></span>
     </h2>
   </header>
+  <main class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-4 mb-4">
+        <div class="card">
+          <h4 class="card-header">Instructions</h4>
+          <div class="card-body">
+            <p class="card-text">Click the button below to add the following to your itinerary.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item border-top">Description</li>
+            <li class="list-group-item">Type</li>
+            <li class="list-group-item">Date</li>
+          </ul>
+          <div class="card-footer">
+            <button class="btn btn-primary container-fluid" data-bs-toggle="modal" data-bs-target="#input-modal">
+              Input Itinerary Item
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8">
+        <table class="table">
+          <thead class="bg-light">
+            <tr>
+              <th class="col-1">Description</th>
+              <th class="col-1">Type</th>
+              <th class="col-1">Date</th>
+              <th class="col-1"></th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal for inputing trip info-->
+  <div class="modal fade" id="input-modal" tabindex="-1" aria-labelledby="input-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="itinerary-form">
+          <div class="modal-header">
+            <h5 class="modal-title" id="input-modal-label">Itinerary Item Information</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> 
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-2">
+              <label for="description-input" class="form-label">Description</label>
+              <input type="text" class="form-control" id="description-input" placeholder="Input itinerary item description here" required>
+            </div>
+            <div class="mb-2">
+              <label for="type-input" class="form-label">Type</label>
+              <select class="form-select container-fluid" id="type-input" aria-label="Itinerary item select menu" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="Acommodation">Accomodation</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Activity">Activity</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="date-input" class="form-label">Date</label>
+              <input type="date" class="form-control" id="date-input" aria-label="date" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="form-submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js" integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM=" crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
