@@ -85,6 +85,7 @@ function renderItineraryItem(currentIndex) {
   let dateEl = $('<td>').text(itemDate.format('MM/DD/YYYY'));
   let deleteButton = "<td><button type = 'button' class = 'btn btn-primary delete-item-btn'>delete</button></td>";
   
+  // changes the background color of the itinerary item if it is within 48 hours
   if(itemDate.diff(today, 'hour') < 48)
     {
       rowEl.addClass("bg-danger");
